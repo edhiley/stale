@@ -2,7 +2,6 @@ require 'net/http'
 require 'uri'
 require 'prettyprint'
 require 'json'
-require 'runner'
 
 Net::HTTP.version_1_2
 

@@ -1,4 +1,6 @@
-require 'utils'
+require 'lib/checker'
+require 'lib/runner'
+require 'lib/utils'
 
 raven_url_get = ENV["RAVEN_GET"] || "http://raven/indexes/urls"
 raven_put = ENV["RAVEN_PUT"] || "http://raven/documents/put"

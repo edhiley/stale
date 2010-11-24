@@ -55,7 +55,7 @@ describe Utils do
       to_return(:status => 200, :body => "", :headers => {})
     
     
-    Utils.put_arms_doc("simple", "http://raven/documents/put")
+    Utils.put_arms_doc("spec/simple", "http://raven/documents/put")
   end
   
 end
