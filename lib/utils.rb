@@ -35,8 +35,10 @@ class Utils
     put_data = read_file(path)
     
     Net::HTTP.start(uri.host, uri.port) do |http|
-      headers = {'Accept'=>'*/*', "Content-Type" => "application/json"}
+	puts "sending document to ARMS..."
+      headers = {'Accept'=>'appliction/json', "Content-Type" => "application/json"}
       response = http.send_request("PUT", uri.request_uri, put_data, headers)  
+    p response
     end
     
   end

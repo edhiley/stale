@@ -36,23 +36,38 @@ class Runner
     @documents[(iterator*batch_count)..((iterator*batch_count)+batch_count)-1]
   end
   
-  def run
-    @documents.each{ |d|
+  def run	
+  
+	resource_check_result = {
+			"DateRan" => Time.now.strftime('%Y-%m-%dT%H:%M:%S%z'),
+			"ResourceChecks" => [
+			]
+	}
+	
+	resource_checks = resource_check_result["ResourceChecks"]
+	
+@documents.each{ |d|
       
-      d["UrlChecks"] = []
+	resource_checks << {
+		"Resource" => d["Id"],
+		"UrlChecks" => []
+	}
+	
+	url_checks = resource_checks.last["UrlChecks"]
       
       d["Urls"].each{|url|
         
         result = Checker.check_url(url)
         
-        d["UrlChecks"] << {
+        url_checks << {
           "Url" => result.url,
           "StatusCode" => result.status_code,
           "Message" => result.message
         }
       }
     }
-    @documents
+    
+    resource_check_result
   end
 
 end

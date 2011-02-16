@@ -1,9 +1,9 @@
-require 'lib/checker'
-require 'lib/runner'
-require 'lib/utils'
+require Dir.pwd + '/lib/checker'
+require Dir.pwd + '/lib/runner'
+require Dir.pwd + '/lib/utils'
 
-raven_url_get = ENV["RAVEN_GET"] || "http://raven/indexes/urls"
-raven_put = ENV["RAVEN_PUT"] || "http://raven/documents/put"
+raven_url_get = ENV["RAVEN_GET"] || "http://arms-local-r4.evidence.nhs.uk/linkchecker"
+raven_put = ENV["RAVEN_PUT"] || "http://arms-local-r4.evidence.nhs.uk/linkchecker"
 output_dir = File.join("output", Time.now.strftime("%Y_%m_%d-%H%M%S"))
 
 to_process_path = File.join(output_dir, "to_process.js")
